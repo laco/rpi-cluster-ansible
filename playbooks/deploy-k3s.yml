@@ -1,0 +1,22 @@
+---
+
+- hosts: k3s-cluster
+  gather_facts: yes
+  become: yes
+  roles:
+    - { role: k3s/prereq }
+    - { role: k3s/download }
+    - { role: k3s/raspbian }
+
+
+- hosts: k3s-master
+#  gather_facts: yes
+  become: yes
+  roles:
+    - { role: k3s/master }
+
+- hosts: k3s-node
+#  gather_facts: yes
+  become: yes
+  roles:
+    - { role: k3s/node }

@@ -1,0 +1,4 @@
+systemd_dir: /etc/systemd/system
+k3s_version: v1.17.3+k3s1
+master_ip: "192.168.0.150"
+extra_server_args: "--no-deploy servicelb --tls-san {{ master_ip }}"
